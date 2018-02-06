@@ -106,6 +106,6 @@ void loop() {
     delay(50);
     setColor(0,0,0); // black?
     Serial.print('counter is at 5');
-    
+  }
 }
 
