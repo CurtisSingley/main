@@ -9,6 +9,7 @@ void setup() {
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
+  Serial.begin(9600);
 }
 
 // creates a color loop that first checks for the button
@@ -55,7 +56,7 @@ void loop() {
   
   // solid color
   else if (counter == 0) {
-    setColor(255,192,203); // pink
+    setColor(80,0,80); // purple
     Serial.print('counter is at 0');
     delay(300);
   }
@@ -73,7 +74,7 @@ void loop() {
   }
   
   else if (counter == 3) {
-    setColor(255,255,0); // yellow
+    setColor(0,255,255); // aqua
     Serial.print('counter is at 3');
     delay(300);
   }
