@@ -96,7 +96,7 @@ void loop() {
   // blinking
   else if (counter == 5) {
     if (buttonState != LOW) {
-    setColor(255, 255, 255);
+    setColor(255, 0, 0);
     }
   
     else {
@@ -105,6 +105,7 @@ void loop() {
     } 
     delay(50);
     setColor(0,0,0); // black?
+    delay(50);
     Serial.print("counter is at 5");
   }
 }
