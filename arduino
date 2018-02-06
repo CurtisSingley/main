@@ -24,7 +24,7 @@ void colorRoutine(int color1, int color2, int color3) {
   
   else {
     counter++;
-    delay(300);
+    delay(500);
   }
 }
 
@@ -51,32 +51,32 @@ void loop() {
     // a delay is necessary or else even holding
     // down the button for 25ms might result in the
     // counter increasing by 50 
-    delay(300);
+    delay(500);
   }
   
   // solid color
   else if (counter == 0) {
     setColor(80,0,80); // purple
     Serial.print("counter is at 0");
-    delay(300);
+    delay(500);
   }
   
   else if (counter == 1) {
     setColor(0,255,0); // green
     Serial.print("counter is at 1");
-    delay(300);
+    delay(500);
   }
   
   else if (counter == 2) {
     setColor(0,0,255); // blue
     Serial.print("counter is at 2");
-    delay(300);
+    delay(500);
   }
   
   else if (counter == 3) {
     setColor(0,255,255); // aqua
     Serial.print("counter is at 3");
-    delay(300);
+    delay(500);
   }
 
   // color loop
@@ -101,7 +101,7 @@ void loop() {
   
     else {
       counter = 0;
-      delay(300);
+      delay(500);
     } 
     delay(50);
     setColor(0,0,0); // black?
