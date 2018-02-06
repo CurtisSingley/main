@@ -56,7 +56,7 @@ void loop() {
   
   // solid color
   else if (counter == 0) {
-    setColor(80,0,80); // purple
+    setColor(80,0,80); // pink
     Serial.print("counter is at 0");
     delay(1000);
   }
@@ -82,7 +82,7 @@ void loop() {
     delay(1000); 
     colorRoutine(0,0,255); // blue
     delay(1000); 
-    colorRoutine(80,0,80); // purple
+    colorRoutine(80,0,80); // pink
     delay(1000); 
     colorRoutine(0,255,255); // aqua
     delay(1000); 
@@ -97,7 +97,7 @@ void loop() {
     delay(50);
     colorRoutine(0,0,255); // blue
     delay(50); 
-    colorRoutine(80,0,80); // purple
+    colorRoutine(80,0,80); // pink
     delay(50); 
     colorRoutine(0,255,255); // aqua
     delay(50); 
