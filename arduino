@@ -92,5 +92,20 @@ void loop() {
     colorRoutine(0,255,255); // aqua
     delay(1000); 
   }
+  
+  // blinking
+  else if (counter == 5) {
+    if (buttonState != LOW) {
+    setColor(255, 255, 255);
+    }
+  
+    else {
+      counter = 0;
+      delay(300);
+    } 
+    delay(50);
+    setColor(0,0,0); // black?
+    Serial.print('counter is at 5');
+    
 }
 
