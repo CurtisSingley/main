@@ -96,7 +96,7 @@ void loop() {
   // blinking
   else if (counter == 5) {
     if (buttonState != LOW) {
-    setColor(255, 0, 0);
+    setColor(80, 0, 80);
     }
   
     else {
