@@ -92,6 +92,7 @@ void loop() {
   else if (counter == 4) {
     // call colorRoutine to check for button and
     // change color
+    Serial.print("counter is at 4");
     colorRoutine(0,255,0); // green
     delay(1000); 
     colorRoutine(0,0,255); // blue
