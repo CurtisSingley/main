@@ -23,7 +23,7 @@ void colorRoutine(int color1, int color2, int color3) {
   }
   
   else {
-    counter = 0;
+    counter++;
     delay(300);
   }
 }
