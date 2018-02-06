@@ -82,13 +82,9 @@ void loop() {
   else if (counter == 4) {
     // call colorRoutine to check for button and
     // change color
-    colorRoutine(255,0,0); // red
-    delay(1000);
     colorRoutine(0,255,0); // green
     delay(1000); 
     colorRoutine(0,0,255); // blue
-    delay(1000); 
-    colorRoutine(255,255,0); // yellow
     delay(1000); 
     colorRoutine(80,0,80); // purple
     delay(1000); 
