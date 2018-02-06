@@ -51,26 +51,26 @@ void loop() {
     // a delay is necessary or else even holding
     // down the button for 25ms might result in the
     // counter increasing by 50 
-    delay(500);
+    delay(1000);
   }
   
   // solid color
   else if (counter == 0) {
     setColor(80,0,80); // purple
     Serial.print("counter is at 0");
-    delay(500);
+    delay(1000);
   }
   
   else if (counter == 1) {
     setColor(0,255,0); // green
     Serial.print("counter is at 1");
-    delay(500);
+    delay(1000);
   }
   
   else if (counter == 2) {
     setColor(0,0,255); // blue
     Serial.print("counter is at 2");
-    delay(500);
+    delay(1000);
   }
   
   // color loop
