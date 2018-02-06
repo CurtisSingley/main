@@ -102,5 +102,9 @@ void loop() {
     colorRoutine(0,255,255); // aqua
     delay(50); 
   }
+  
+  else {
+    counter = 0;
+  }
 }
 
