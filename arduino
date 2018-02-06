@@ -57,25 +57,25 @@ void loop() {
   // solid color
   else if (counter == 0) {
     setColor(80,0,80); // purple
-    Serial.print('counter is at 0');
+    Serial.print("counter is at 0");
     delay(300);
   }
   
   else if (counter == 1) {
     setColor(0,255,0); // green
-    Serial.print('counter is at 1');
+    Serial.print("counter is at 1");
     delay(300);
   }
   
   else if (counter == 2) {
     setColor(0,0,255); // blue
-    Serial.print('counter is at 2');
+    Serial.print("counter is at 2");
     delay(300);
   }
   
   else if (counter == 3) {
     setColor(0,255,255); // aqua
-    Serial.print('counter is at 3');
+    Serial.print("counter is at 3");
     delay(300);
   }
 
@@ -105,7 +105,7 @@ void loop() {
     } 
     delay(50);
     setColor(0,0,0); // black?
-    Serial.print('counter is at 5');
+    Serial.print("counter is at 5");
   }
 }
 
