@@ -73,10 +73,18 @@ void loop() {
     delay(500);
   }
   
+  // color loop and flash
   else if (counter == 3) {
-    setColor(0,255,255); // aqua
-    Serial.print("counter is at 3");
-    delay(500);
+    // call colorRoutine to check for button and
+    // change color
+    colorRoutine(0,255,0); // green
+    delay(50); 
+    colorRoutine(0,0,255); // blue
+    delay(50); 
+    colorRoutine(80,0,80); // purple
+    delay(50); 
+    colorRoutine(0,255,255); // aqua
+    delay(50); 
   }
 
   // color loop
