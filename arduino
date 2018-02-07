@@ -62,30 +62,36 @@ void loop() {
   else if (counter == 0) {
     photocellReading = analogRead(photocellPin); 
     Serial.println(photocellReading);
-    if (photocellReading > 512):
-      setColor(255,192,203);
-    else:
-      setColor(80,0,80);
+    if (photocellReading > 512) {
+    setColor(255,192,203);
+    }
+    else {
+    setColor(80,0,80);
+    }
     delay(1000);
   }
   
   else if (counter == 1) {
     photocellReading = analogRead(photocellPin); 
     Serial.println(photocellReading);
-    if (photocellReading > 512):
+    if (photocellReading > 512) {
       setColor(144,238,144);
-    else:
+    }
+    else {
       setColor(0,255,0);
+    }
     delay(1000);
   }
   
   else if (counter == 2) {
     photocellReading = analogRead(photocellPin); 
     Serial.println(photocellReading);
-    if (photocellReading > 512):
+    if (photocellReading > 512) {
       setColor(0,255,255);
-    else:
+    }
+    else {
       setColor(0,0,255);
+    }
     delay(1000);
   }
   
