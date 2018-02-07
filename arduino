@@ -53,13 +53,13 @@ void photoResistor(int int1, int int2, int int3)
   Serial.println(photocellReading);
   // photocellReading = 1023 - photocellReading;
   LEDbrightness = map(photocellReading, 0, 1023, 0, 255);
-  tint1 = int1 * LEDbrightness / (int1 + int2 + int3);
+  tint1 = int1 * LEDbrightness / ((int1 + int2 + int3)/3);
   Serial.println("RED VALUE:");
   Serial.println(tint1);
-  tint2 = int2 * LEDbrightness / (int1 + int2 + int3);
+  tint2 = int2 * LEDbrightness / ((int1 + int2 + int3)/3);
   Serial.println("GREEN VALUE:");
   Serial.println(tint2);
-  tint3 = int3 * LEDbrightness / (int1 + int2 + int3);
+  tint3 = int3 * LEDbrightness / ((int1 + int2 + int3)/3);
   Serial.println("BLUE VALUE:");
   Serial.println(tint3);
   analogWrite(redPin, tint1);
