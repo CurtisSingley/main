@@ -43,31 +43,6 @@ void setColor(int red, int green, int blue)
   analogWrite(bluePin, blue);  
 }
 
-// sets brightness based on photoresistor
-void photoResistor(int int1, int int2, int int3)
-{
-  int tint1;
-  int tint2;
-  int tint3;
-  photocellReading = analogRead(photocellPin); 
-  Serial.println(photocellReading);
-  photocellReading = 1023 - photocellReading;
-  LEDbrightness = map(photocellReading, 0, 1023, 0, 255);
-  tint1 = int1 * LEDbrightness / ((int1 + int2 + int3)/3);
-  Serial.println("RED VALUE:");
-  Serial.println(tint1);
-  tint2 = int2 * LEDbrightness / ((int1 + int2 + int3)/3);
-  Serial.println("GREEN VALUE:");
-  Serial.println(tint2);
-  tint3 = int3 * LEDbrightness / ((int1 + int2 + int3)/3);
-  Serial.println("BLUE VALUE:");
-  Serial.println(tint3);
-  analogWrite(redPin, tint1);
-  analogWrite(greenPin, tint2);
-  analogWrite(bluePin, tint3);
-  delay(40);
-}
-
 void loop() {
   int buttonState;
   buttonState = digitalRead(buttonPin);
@@ -85,20 +60,32 @@ void loop() {
   
   // solid color
   else if (counter == 0) {
-    photoResistor(80,0,80); // pink
-    Serial.print("counter is at 0");
+    photocellReading = analogRead(photocellPin); 
+    Serial.println(photocellReading);
+    if photocellReading > 512:
+      setColor(255,192,203);
+    else:
+      setColor(80,0,80);
     delay(1000);
   }
   
   else if (counter == 1) {
-    photoResistor(0,255,0); // green
-    Serial.print("counter is at 1");
+    photocellReading = analogRead(photocellPin); 
+    Serial.println(photocellReading);
+    if photocellReading > 512:
+      setColor(144,238,144);
+    else:
+      setColor(0,255,0);
     delay(1000);
   }
   
   else if (counter == 2) {
-    photoResistor(0,0,255); // blue
-    Serial.print("counter is at 2");
+    photocellReading = analogRead(photocellPin); 
+    Serial.println(photocellReading);
+    if photocellReading > 512:
+      setColor(0,255,255);
+    else:
+      setColor(0,0,255);
     delay(1000);
   }
   
