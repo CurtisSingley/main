@@ -5,7 +5,7 @@ int bluePin = 9;
 int counter = 0;
 int photocellPin = 0;     // the cell and 10K pulldown are connected to a0
 int photocellReading;     // the analog reading from the sensor divider
-int LEDpin = 11;          // connect Red LED to pin 11 (PWM pin)
+//int LEDpin = 3;          // connect Red LED to pin 11 (PWM pin)
 int LEDbrightness;        
 
 void setup() {
@@ -44,13 +44,18 @@ void setColor(int red, int green, int blue)
 }
 
 // sets brightness based on photoresistor
-void photoresistor()
+void photoresistor(int1,int2,int3)
 {
   photocellReading = analogRead(photocellPin); 
   Serial.println(photocellReading);
   photocellReading = 1023 - photocellReading;
   LEDbrightness = map(photocellReading, 0, 1023, 0, 255);
-  analogWrite(LEDpin, LEDbrightness);
+  tint1 = int1 * LEDbrightness / (int1 + int2 + int3);
+  tint2 = int2 * LEDbrightness / (int1 + int2 + int3);
+  tint3 = int3 * LEDbrightness / (int1 + int2 + int3);
+  analogWrite(redPin, tint1);
+  analogWrite(greenPin, tint2);
+  analogWrite(bluePin, tint3);
   delay(40);
 }
 
