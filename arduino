@@ -44,8 +44,11 @@ void setColor(int red, int green, int blue)
 }
 
 // sets brightness based on photoresistor
-void photoresistor(int1,int2,int3)
+void photoresistor(int int1, int int2, int int3)
 {
+  int tint1;
+  int tint2;
+  int tint3;
   photocellReading = analogRead(photocellPin); 
   Serial.println(photocellReading);
   photocellReading = 1023 - photocellReading;
