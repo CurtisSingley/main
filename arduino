@@ -5,8 +5,9 @@ int bluePin = 9;
 int counter = 0;
 int photocellPin = 0;     // the cell and 10K pulldown are connected to a0
 int photocellReading;     // the analog reading from the sensor divider
-//int LEDpin = 3;          // connect Red LED to pin 11 (PWM pin)
-int LEDbrightness;        
+int LEDbrightness;  
+int potPin = 2;
+int val = 0;
 
 void setup() {
   pinMode(buttonPin, INPUT);
@@ -95,8 +96,14 @@ void loop() {
     delay(1000);
   }
   
-  // color loop
   else if (counter == 3) {
+    val = analogRead(potPin);
+    val = map(val, 0, 1024, 0, 255);
+    setColor(155,val,155);
+  }
+  
+  // color loop
+  else if (counter == 4) {
     // call colorRoutine to check for button and
     // change color
     Serial.print("counter is at 3");
@@ -111,7 +118,7 @@ void loop() {
   }
   
   // color loop and flash
-  else if (counter == 4) {
+  else if (counter == 5) {
     // call colorRoutine to check for button and
     // change color
     Serial.print("counter is at 4");
