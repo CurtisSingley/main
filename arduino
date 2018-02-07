@@ -1,45 +1,47 @@
-int buttonPin = 3;
-int redPin = 11;
-int greenPin = 10;
-int bluePin = 9;
-int counter = 0;
-int photocellPin = 0;     // the cell and 10K pulldown are connected to a0
+// referenced https://learn.adafruit.com/photocells?view=all
+
+int buttonPin = 3;        // the button is connected to pin 3
+int redPin = 11;	  // the red led in the multicolor led is pin 11
+int greenPin = 10;	  // the green led in the multicolor led is pin 10
+int bluePin = 9;	  // the blue led in the multicolor led is pin 9
+int counter = 0;	  // initialize counter to switch cases when button is pressed
+int photocellPin = 0;     // the photoresistor is connected to pin a0
 int photocellReading;     // the analog reading from the sensor divider
-int LEDbrightness;  
-int potPin = 2;
-int val = 0;
+int potPin = 2;           // the potentiometer is connected to pin a2
+int val = 0;              // the value read by the potentiometer
 
 void setup() {
-  pinMode(buttonPin, INPUT);
-  pinMode(redPin, OUTPUT);
+  pinMode(buttonPin, INPUT);  // initialize the button to be read as an input
+  pinMode(redPin, OUTPUT);    // initialize the other rgb led pins as outputs
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
-  Serial.begin(9600);
+  Serial.begin(9600);         // used to start serial monitor for debugging
 }
 
-// creates a color loop that first checks for the button
-// being pressed down before going to the next color
+// function that creates a color loop that first checks for the button being pressed down before going to the next color
 void colorRoutine(int color1, int color2, int color3) {
   int buttonState;
-  buttonState = digitalRead(buttonPin);
+  buttonState = digitalRead(buttonPin);     // stores whether button is pressed or not
   
+  // must check to make sure that button is not pressed before continuing with the loop, or else no input will ever be received
   if (buttonState != LOW) {
-    setColor(color1, color2, color3);
+    setColor(color1, color2, color3);       // sets color given in the function arguments if button is not pressed
   }
   
+  // if button is pressed, increase counter to go to next case
   else {
     counter++;
-    delay(800);
+    delay(800);   // delay is needed in order to try to prevent a single button press from being read multiple times
   }
 }
 
 // changes voltages of pins to change color
 void setColor(int red, int green, int blue)
 {
-  red = 255 - red;
+  red = 255 - red;                // reversing the voltage is needed for common anode rgb led
   green = 255 - green;
   blue = 255 - blue;
-  analogWrite(redPin, red);
+  analogWrite(redPin, red);       // send voltages through respective pins
   analogWrite(greenPin, green);
   analogWrite(bluePin, blue);  
 }
@@ -49,30 +51,28 @@ void loop() {
   buttonState = digitalRead(buttonPin);
   
   if (buttonState == LOW) {
-    // counter increases every time button is
-    // pressed. This makes it go to the next case 
+    // counter increases when button is pressed. This makes it go to the next case 
     counter++;
 
-    // a delay is necessary or else even holding
-    // down the button for 25ms might result in the
-    // counter increasing by 50 
+    // delay is needed in order to try to prevent a single button press from being read multiple times
     delay(1000);
   }
-  
-  // solid color
-  else if (counter == 0) {
+
+  // solid color pink with photoresistor support
+  if (counter == 0) {
     Serial.print("counter is at 0");
     photocellReading = analogRead(photocellPin); 
     Serial.println(photocellReading);
-    if (photocellReading < 512) {
+    if (photocellReading < 512) {     // sets color to bright pink if ambient light is dim
     setColor(255,192,203);
     }
-    else {
+    else {                            // else sets color to dimmer pink
     setColor(80,0,80);
     }
     delay(1000);
   }
   
+  // solid color green with photoresistor support
   else if (counter == 1) {
     Serial.print("counter is at 1");
     photocellReading = analogRead(photocellPin); 
@@ -86,6 +86,7 @@ void loop() {
     delay(1000);
   }
   
+  // solid color blue with photoresistor support
   else if (counter == 2) {
     Serial.print("counter is at 2");
     photocellReading = analogRead(photocellPin); 
@@ -99,6 +100,7 @@ void loop() {
     delay(1000);
   }
   
+  // special mode to change the color with the potentiometer
   else if (counter == 3) {
     Serial.print("counter is at 3");
     val = analogRead(potPin);
@@ -106,11 +108,11 @@ void loop() {
     setColor(155,val,155);
   }
   
-  // color loop
+  // color loop that automatically rotates between 4 colors
   else if (counter == 4) {
-    // call colorRoutine to check for button and
-    // change color
     Serial.print("counter is at 4");
+    
+    // call colorRoutine to check for button input and change color
     colorRoutine(0,255,0); // green
     delay(1000); 
     colorRoutine(0,0,255); // blue
@@ -123,8 +125,7 @@ void loop() {
   
   // color loop and flash
   else if (counter == 5) {
-    // call colorRoutine to check for button and
-    // change color
+    // call colorRoutine to check for button and change color
     Serial.print("counter is at 5");
     colorRoutine(0,255,0); // green
     delay(50);
@@ -137,7 +138,6 @@ void loop() {
   }
   
   else {
-    counter = 0;
+    counter = 0;  // start over if counter is outside of possible cases
   }
 }
-
