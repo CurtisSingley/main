@@ -57,7 +57,7 @@ void photoresistor()
 void loop() {
   int buttonState;
   buttonState = digitalRead(buttonPin);
-  photoresistor()
+  photoresistor();
   
   if (buttonState == LOW) {
     // counter increases every time button is
@@ -72,21 +72,21 @@ void loop() {
   
   // solid color
   else if (counter == 0) {
-    photoresistor()
+    photoresistor();
     setColor(80,0,80); // pink
     Serial.print("counter is at 0");
     delay(1000);
   }
   
   else if (counter == 1) {
-    photoresistor()
+    photoresistor();
     setColor(0,255,0); // green
     Serial.print("counter is at 1");
     delay(1000);
   }
   
   else if (counter == 2) {
-    photoresistor()
+    photoresistor();
     setColor(0,0,255); // blue
     Serial.print("counter is at 2");
     delay(1000);
@@ -96,17 +96,17 @@ void loop() {
   else if (counter == 3) {
     // call colorRoutine to check for button and
     // change color
-    photoresistor()
+    photoresistor();
     Serial.print("counter is at 3");
     colorRoutine(0,255,0); // green
     delay(1000); 
-    photoresistor()
+    photoresistor();
     colorRoutine(0,0,255); // blue
     delay(1000); 
-    photoresistor()
+    photoresistor();
     colorRoutine(80,0,80); // pink
     delay(1000); 
-    photoresistor()
+    photoresistor();
     colorRoutine(0,255,255); // aqua
     delay(1000); 
   }
@@ -115,7 +115,7 @@ void loop() {
   else if (counter == 4) {
     // call colorRoutine to check for button and
     // change color
-    photoresistor()
+    photoresistor();
     Serial.print("counter is at 4");
     colorRoutine(0,255,0); // green
     delay(50);
