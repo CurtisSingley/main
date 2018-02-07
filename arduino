@@ -51,7 +51,7 @@ void photoResistor(int int1, int int2, int int3)
   int tint3;
   photocellReading = analogRead(photocellPin); 
   Serial.println(photocellReading);
-  photocellReading = 1023 - photocellReading;
+  // photocellReading = 1023 - photocellReading;
   LEDbrightness = map(photocellReading, 0, 1023, 0, 255);
   tint1 = int1 * LEDbrightness / (int1 + int2 + int3);
   Serial.println("RED VALUE:");
