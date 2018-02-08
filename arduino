@@ -1,22 +1,22 @@
 // referenced https://learn.adafruit.com/photocells?view=all
 // referenced https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
-int buttonPin = 3;        // the button is connected to pin 3
-int redPin = 11;	  // the red led in the multicolor led is pin 11
-int greenPin = 10;	  // the green led in the multicolor led is pin 10
-int bluePin = 9;	  // the blue led in the multicolor led is pin 9
-volatile int counter = 0; // initialize counter to switch cases when button is pressed, volatile in order to be read constantly
-int photocellPin = 0;     // the photoresistor is connected to pin a0
-int photocellReading;     // the analog reading from the sensor divider
-int potPin = 2;           // the potentiometer is connected to pin a2
-int potVal = 0;           // the value read by the potentiometer
+const int buttonPin = 3;    // the button is connected to pin 3
+const int redPin = 11;	    // the red led in the multicolor led is pin 11
+const int greenPin = 10;    // the green led in the multicolor led is pin 10
+const int bluePin = 9;	    // the blue led in the multicolor led is pin 9
+volatile int counter = 0;   // initialize counter to switch cases when button is pressed, volatile in order to be read constantly
+const int photocellPin = 0; // the photoresistor is connected to pin a0
+int photocellReading;       // the analog reading from the sensor divider
+const int potPin = 2;       // the potentiometer is connected to pin a2
+int potVal = 0;             // the value read by the potentiometer
 
 void setup() {
   pinMode(buttonPin, INPUT_PULLUP);  // initialize the button to be read as an input
   pinMode(redPin, OUTPUT);    // initialize the other rgb led pins as outputs
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
-  attachInterrupt(digitalPinToInterrupt(buttonPin), checkButton, LOW);  // sets up ISR to monitor button pin for when it is depressed
+  attachInterrupt(digitalPinToInterrupt(buttonPin), checkButton, RISING);  // sets up ISR to monitor button pin for when it is depressed (voltage rising from low to high)
   Serial.begin(9600);         // used to start serial monitor for debugging
 }
 
@@ -78,8 +78,8 @@ void loop() {
     case 3:
       Serial.print("counter is at 3");
       potVal = analogRead(potPin);
-      potVal = map(val, 0, 1024, 0, 255);
-      setColor(155,val,155);
+      potVal = map(potVal, 0, 1024, 0, 255);
+      setColor(155,potVal,155);
       break;
   
     // color loop that automatically rotates between 4 colors
