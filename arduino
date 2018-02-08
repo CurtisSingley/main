@@ -111,7 +111,7 @@ void loop() {
       counter = 0;  // start over if counter is outside of possible cases
       break;
   }
-delay(1000);
+  delay(1000);  // adds a second delay at the end of every case
 }
 
 void checkButton() {
