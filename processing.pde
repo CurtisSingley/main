@@ -20,7 +20,7 @@ float offset = 0;
 float easing = 0.05;
 
 void setup() {
-  size(640, 315);
+  size(1080, 315);
   img = loadImage("ad.png");  // Load an image into the program 
   img2 = loadImage("hotelad.jpg");
 
