@@ -45,13 +45,13 @@ background(0);
 if (_data[1] > 512) {
   // image(img, 0, 0);  // Display at full opacity
   float dx = ((_data[0]-img.width) - offset)*3;
-  offset += (dx * easing)*20; 
+  offset += (dx * easing)*5; 
   image(img, offset, 0);
   }
 else {
   // image(img2, 0, 0);  // Display at full opacity
   float dx = ((_data[0]-img2.width) - offset)*3;
-  offset += (dx * easing)*20; 
+  offset += (dx * easing)*5; 
   image(img2, offset, 0);
  }
 }
