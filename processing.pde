@@ -15,6 +15,7 @@ Serial _serialPort;
 int _data [] = new int[0];
 
 PImage img;
+PImage img2;
 float offset = 0;
 float easing = 0.05;
 
