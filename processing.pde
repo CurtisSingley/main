@@ -44,15 +44,15 @@ void draw() {
 background(0);
 if (_data[1] > 512) {
   // image(img, 0, 0);  // Display at full opacity
-  float dx = (_data[0]-img.width/2) - offset;
+  float dx = (_data[0]-img.width) - offset;
   offset += (dx * easing)*3; 
   image(img, offset, 0);
 
   }
 else {
   // image(img2, 0, 0);  // Display at full opacity
-  float dx = (_data[0]-img2.width/2) - offset;
-  offset += dx * easing; 
+  float dx = (_data[0]-img2.width) - offset;
+  offset += (dx * easing)*3; 
   image(img2, offset, 0);
  }
 }
