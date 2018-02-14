@@ -45,7 +45,7 @@ background(0);
 if (_data[1] > 512) {
   // image(img, 0, 0);  // Display at full opacity
   float dx = (_data[0]-img.width/2) - offset;
-  offset += dx * easing; 
+  offset += (dx * easing)*3; 
   image(img, offset, 0);
 
   }
