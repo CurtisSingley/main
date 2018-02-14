@@ -16,11 +16,11 @@ int _data [] = new int[0];
 
 PImage img;
 PImage img2;
-float offset = 0;
+float offset = -500;
 float easing = 0.05;
 
 void setup() {
-  size(1080, 315);
+  size(900, 315);
   img = loadImage("ad.png");  // Load an image into the program 
   img2 = loadImage("hotelad.jpg");
 
@@ -44,14 +44,13 @@ void draw() {
 background(0);
 if (_data[1] > 512) {
   // image(img, 0, 0);  // Display at full opacity
-  float dx = (_data[0]-img.width/3) - offset;
+  float dx = (_data[0]-img.width) - offset;
   offset += (dx * easing)*3; 
   image(img, offset, 0);
-
   }
 else {
   // image(img2, 0, 0);  // Display at full opacity
-  float dx = (_data[0]-img2.width/3) - offset;
+  float dx = (_data[0]-img2.width) - offset;
   offset += (dx * easing)*3; 
   image(img2, offset, 0);
  }
