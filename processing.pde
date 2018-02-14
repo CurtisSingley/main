@@ -43,11 +43,6 @@ image(img, 0, 0);  // Display at full opacity
   float dx = (_data[1]-img.width/2) - offset;
   offset += dx * easing; 
   image(img, offset, 0);
-
- 
-  // Just a simple check to make sure the array is the size I expect (so the data is there)
-  if (_data.length >= 2) {
-  }
   
 }
 
