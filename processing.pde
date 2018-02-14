@@ -36,6 +36,7 @@ void setup() {
   // https://processing.org/reference/colorMode_.html
   colorMode(HSB, 1.0, 1.0, 1.0, 1.0);
   
+}
 
 void draw() {
   
