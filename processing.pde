@@ -41,7 +41,7 @@ void setup() {
 }
 
 void draw() {
-
+background(0);
 if (_data[1] > 512) {
   // image(img, 0, 0);  // Display at full opacity
   float dx = (_data[0]-img.width/2) - offset;
@@ -55,7 +55,6 @@ else {
   offset += dx * easing; 
   image(img2, offset, 0);
  }
- background(0);
 }
 
 
