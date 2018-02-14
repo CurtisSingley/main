@@ -39,12 +39,19 @@ void setup() {
 }
 
 void draw() {
-  
-image(img, 0, 0);  // Display at full opacity
+
+if (_data[1] > 512) {
+  image(img, 0, 0);  // Display at full opacity
   float dx = (_data[1]-img.width/2) - offset;
   offset += dx * easing; 
   image(img, offset, 0);
-  
+  }
+else {
+  pushMatrix();
+  fill(0);
+  rect(0,0,width,height);
+  popMatrix();
+ }
 }
 
 
