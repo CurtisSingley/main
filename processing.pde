@@ -55,6 +55,7 @@ else {
   offset += dx * easing; 
   image(img2, offset, 0);
  }
+ background(0);
 }
 
 
