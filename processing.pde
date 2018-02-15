@@ -21,6 +21,7 @@ PImage img;
 PImage img2;
 float offset = 0;  // initialize offset variable
 float easing = 0.1;  // this is a value that helps smooth the motion by making the offset steps smaller
+int ppos = 0;
 
 void setup() {
   size(900, 315);  // defines the size of the window. In real-world applications, this would probably be much larger to reflect the actual size of the screen
