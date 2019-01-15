@@ -36,6 +36,8 @@ call plug#begin()
  Plug 'vim-scripts/ReplaceWithRegister'
  Plug 'beloglazov/vim-online-thesaurus'
  Plug 'lervag/vimtex'
+ Plug 'iamcco/mathjax-support-for-mkdp'
+ Plug 'iamcco/markdown-preview.vim'
 
  " Color plugins
  Plug 'junegunn/seoul256.vim'
@@ -90,6 +92,13 @@ map <leader>p :!opout <c-r>%<CR><CR>
 
 " Compile document
 map <leader>c :!compiler <c-r>&<CR>
+
+" Annoying temporary files
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+if v:version >= 703
+  set undodir=/tmp//,.
+endif
 
 " Interpret .md files, etc. as .markdown
 "let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
@@ -163,6 +172,9 @@ endif
 
 " Needed for lightline status bar
 set laststatus=2
+
+" Used to set browser for markdown-preview plugin
+let g:mkdp_path_to_chrome = "chrome"
 
 " seoul256 (dark):
 "   Range:   233 (darkest) ~ 239 (lightest)
