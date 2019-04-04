@@ -37,7 +37,7 @@ call plug#begin()
  Plug 'beloglazov/vim-online-thesaurus'
  Plug 'lervag/vimtex'
  Plug 'iamcco/mathjax-support-for-mkdp'
- Plug 'iamcco/markdown-preview.vim'
+" Plug 'iamcco/markdown-preview.vim'
 
  " Color plugins
  Plug 'junegunn/seoul256.vim'
