@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Automatically start tmux session
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "VSCODE" != "yes" ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
@@ -20,8 +20,8 @@ set -o vi
 
 # Some aliases
 #alias SS="sudo systemctl"
-alias v="vim"
-alias sv="sudo vim"
+# alias v="vim"
+# alias sv="sudo vim"
 alias r="ranger"
 alias sr="sudo ranger"
 alias ska="sudo killall"
