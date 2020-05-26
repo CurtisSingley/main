@@ -29,6 +29,9 @@ fi
 xkbset m
 xkbset exp =m
 
+# default brightness set to 50%
+xrandr --output eDP-1 --brightness 0.5
+
 ibus-daemon -drx
 
 # exec dbus-launch i3

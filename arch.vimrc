@@ -4,6 +4,14 @@ set t_Co=256
 set ts=2
 set sw=2
 
+" Set relative line numbers
+set number
+set relativenumber
+
+" Set smartcase for searching
+set ignorecase
+set smartcase
+
 call plug#begin('/home/zynx/.vim/autoload/plugged/')
 
 " Declare the list of plugins.
@@ -34,6 +42,9 @@ call plug#begin('/home/zynx/.vim/autoload/plugged/')
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+" Fixes auto-indent
+filetype plugin indent on
 
 " Splits open at the bottom and right
 set splitbelow
