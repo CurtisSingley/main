@@ -6,10 +6,28 @@ if [ "$EUID" -ne 0 ]
 	else export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]ROOT\[$(tput setaf 2)\]@\[$(tput setaf 4)\]$(hostname | awk '{print toupper($0)}') \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 fi
 
+# TMUX
+#if which tmux >/dev/null 2>&1; then
+    # if no session is started, start a new session
+    #test -z ${TMUX} && tmux
+
+    # when quitting tmux, try to attach
+    #while test -z ${TMUX}; do
+        #tmux attach || break
+    #done
+#fi
+
 # Set VI commands in bash
 set -o vi
 
 bind -m vi-command "v":
+
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  #tmux a -t default || exec tmux new -s default && exit;
+#fi
+
+#[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+#[ -z "$TMUX"  ] && exec tmux new-session && exit;
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
