@@ -32,6 +32,7 @@ call plug#begin('/home/zynx/.vim/autoload/plugged/')
  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
  Plug 'vim-pandoc/vim-pandoc'
  Plug 'vim-pandoc/vim-pandoc-syntax'
+ Plug 'easymotion/vim-easymotion'
 
  " Color plugins
  Plug 'junegunn/seoul256.vim'
@@ -55,10 +56,12 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+let mapleader = " "
 
 " seoul256 (dark):
 " "   Range:   233 (darkest) ~ 239 (lightest)
 " "   Default: 237
 let g:seoul256_background = 234
+let g:tex_flavor = 'latex'
 colo seoul256
 "
