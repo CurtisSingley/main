@@ -1,0 +1,39 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "keyboard.dispatch": "keyCode",
+  "workbench.preferredLightColorTheme": "Default Dark+",
+  "workbench.preferredHighContrastColorTheme": "Default Dark+",
+  "window.zoomLevel": 0,
+  "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+  "todo-tree.tree.showScanModeButton": false,
+  "editor.lineNumbers": "relative",
+  "editor.formatOnPaste": true,
+  "python.languageServer": "Pylance",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "vim.easymotion": true,
+  "vim.easymotionMarkerForegroundColorOneChar": "#5BFA00",
+  "vim.easymotionMarkerForegroundColorTwoChar": "#FFB400",
+  "vim.easymotionMarkerFontWeight": "bold",
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.leader": "<space>"
+}
