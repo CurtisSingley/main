@@ -183,18 +183,20 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-mode "Print Screen: [c]lipboard, [f]ile, [s]election to clipboard, s[e]lection to file" {
-	bindsym c exec "maim | xclip -selection clipboard -t image/png; i3-msg mode default"
+mode "Print Screen: [a]ll clipboard, [c]urrent window to clipboard, [f]ile, [s]election to clipboard, s[e]lection to file" {
+	bindsym a exec "maim | copyq write image/png -; i3-msg mode default"
+	# bindsym c exec "maim | xclip -selection clipboard -t image/png; i3-msg mode default"
+	bindsym c exec "maim -i $(xdotool getactivewindow) | copyq write image/png -; i3-msg mode default"
 	bindsym f exec "maim ~/media/pictures/screenshots/$(date +%F_%H-%M-%S).png; i3-msg mode default"
-	# bindsym s exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 | xclip -selection clipboard -t image/png; i3-msg mode default"
-	# bindsym e exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 ~/media/pictures/screenshots/$(date +%F_%H-%M-%S).png; i3-msg mode default"
-	bindsym s exec "maim -s | xclip -selection clipboard -t image/png; i3-msg mode default"
+	# bindsym s exec "maim -s | xclip -selection clipboard -t image/png; i3-msg mode default"
+	bindsym s exec "maim -s | copyq write image/png -; i3-msg mode default"
 	bindsym e exec "maim -s ~/media/pictures/screenshots/$(date +%F_%H-%M-%S).png; i3-msg mode default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-bindsym Print mode "Print Screen: [c]lipboard, [f]ile, [s]election to clipboard, s[e]lection to file"
+bindsym Print mode "Print Screen: [a]ll clipboard, [c]urrent window to clipboard, [f]ile, [s]election to clipboard, s[e]lection to file"
 
+# Press Pause to start video capture mode menu (press Windows Key + Pause start capture directly instead)
 mode "Video Capture: [m]p4, [g]if (press esc then Shift-Pause to stop)" {
 	bindsym m exec "~/scripts/screencastmp4.sh"
 	bindsym g exec "~/scripts/screencastgif.sh"
@@ -205,19 +207,9 @@ bindsym Pause mode "Video Capture: [m]p4, [g]if (press esc then Shift-Pause to s
 
 bindsym $mod+Pause  exec "ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f pulse -ac 2 -i default -c:v libx264 -preset ultrafast -c:a aac -f segment -strftime 1 -segment_time 60 -segment_format mp4 ~/media/videos/screencasts/%F_%H-%M-%S.mp4"
 
-# screenshot/screencapture using shell script at ~/.config/i3/record-screen.sh
-# bindsym Print exec "maim -s | xclip -selection clipboard -t image/png" # screencap to clipboard
-# bindsym Ctrl+Print exec "maim ~/media/pictures/screenshots/$(date +%s).png"
-
-# bindsym $mod+Print exec "maim -u -s -n -l -c 0.157,0.333,0.466,0.4 | xclip -selection clipboard -t image/png" # screencap selectable area to clipboard
-bindsym Shift+Print exec "~/scripts/screencastmp4.sh"
-# bindsym Shift+Ctrl+Print exec "killall ffmpeg"
-# bindsym Shift+Pause exec "ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f pulse -ac 2 -i default -c:v libx264 -preset ultrafast -c:a aac -f segment -strftime 1 -segment_time 60 -segment_format mp4 ~/media/videos/screencasts/%F_%H-%M-%S.mp4"
+# bindsym Shift+Print exec "~/scripts/screencastmp4.sh"
 bindsym Shift+Pause exec "killall ffmpeg"
-# bindsym $mod+Pause mode "resize"
-# bindsym Shift+$mod+Pause mode "resize"
 
-# note: Ctrl+Pause does not work
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
