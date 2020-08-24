@@ -222,3 +222,4 @@ exec copyq &
 exec keepassxc &
 
 #exec urxvt
+exec xterm -e tmux
