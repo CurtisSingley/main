@@ -218,5 +218,7 @@ bar {
         status_command i3status
 }
 
+exec copyq &
+exec keepassxc &
+
 #exec urxvt
-exec xterm
