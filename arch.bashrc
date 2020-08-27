@@ -67,7 +67,7 @@ export FZF_DEFAULT_OPTS="
 --bind '?:toggle-preview'
 --bind 'alt-a:select-all'
 --bind 'ctrl-y:execute-silent(echo {+} | copyq copy -)'
---bind 'ctrl-v:execute(code {+})'
+--bind 'ctrl-e:execute(code {+})'
 "
 
 # enable fzf completion for zathura
