@@ -21,7 +21,7 @@ call plug#begin('/home/zynx/.vim/autoload/plugged/')
  Plug 'tpope/vim-fugitive'
  Plug 'tpope/vim-rhubarb'
  Plug 'tpope/vim-surround'
- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+ " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'tpope/vim-commentary'
  Plug 'tpope/vim-repeat'
