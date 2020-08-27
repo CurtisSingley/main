@@ -53,6 +53,11 @@ export QT_IM_MODULE=ibus
 source "/usr/share/fzf/completion.bash"
 source "/usr/share/fzf/key-bindings.bash"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_DEFAULT_OPTS="
+--bind 'ctrl-space:jump'
+"
+
+bind '"\e[A": history-search-backward'
 
 # enable fzf completion for zathura
 complete -o bashdefault -o default -F _fzf_path_completion zathura
