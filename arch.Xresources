@@ -43,6 +43,7 @@ xterm*faceName: Source Code Pro
 xterm*faceSize: 10
 xterm*background: black
 xterm*foreground: lightgray
+xterm*metaSendsEscape: true
 
 !
 !URxvt*font: xft:Ubuntu:size=10
