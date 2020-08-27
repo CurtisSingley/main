@@ -225,4 +225,4 @@ exec keepassxc
 assign [class="KeePassXC"] $ws3
 
 # exec urxvt
-exec xterm -e tmux
+exec xterm -e tmux -2

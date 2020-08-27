@@ -53,11 +53,22 @@ export QT_IM_MODULE=ibus
 source "/usr/share/fzf/completion.bash"
 source "/usr/share/fzf/key-bindings.bash"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-export FZF_DEFAULT_OPTS="
---bind 'ctrl-space:jump'
-"
 
-bind '"\e[A": history-search-backward'
+# Toggle easymotion-like jumps 'CTRL-SPACE'
+# Toggle preview window with '?'
+# Select all entries with 'ALT-A'
+# Copy the selected entries to the copyq clipboard with 'CTRL-Y'
+# Open the selected entries in vim with 'CTRL-E'
+# Open the selected entries in vscode with 'CTRL-V'
+export FZF_DEFAULT_OPTS="
+--preview-window=:hidden
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--bind 'ctrl-space:jump'
+--bind '?:toggle-preview'
+--bind 'alt-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | copyq copy -)'
+--bind 'ctrl-v:execute(code {+})'
+"
 
 # enable fzf completion for zathura
 complete -o bashdefault -o default -F _fzf_path_completion zathura
