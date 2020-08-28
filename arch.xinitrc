@@ -32,6 +32,9 @@ xkbset exp =m
 # default brightness set to 50%
 xrandr --output eDP-1 --brightness 0.5
 
+# sets monitors to turn off due to inactivity after 1 hour
+xset dpms 3600 3600 3600
+
 ibus-daemon -drx
 
 # exec dbus-launch i3
