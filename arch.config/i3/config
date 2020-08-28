@@ -213,16 +213,23 @@ bindsym Shift+Pause exec "killall ffmpeg"
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+t [class="KeePassXC"] move workspace 3, [class="Spotify"] move workspace 4
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
 }
 
+workspace 3 output eDP-1
+
 exec copyq &
 # exec keepassxc &
+# exec i3-msg "workspace 3; exec keepassxc; workspace 2"
 exec keepassxc
-assign [class="KeePassXC"] $ws3
+#assign [class="KeePassXC"] $ws3
+
 
 # exec urxvt
+# exec i3-msg "workspace 2; exec xterm -e tmux -2; workspace 2"
 exec xterm -e tmux -2
