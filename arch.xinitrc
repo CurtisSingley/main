@@ -2,6 +2,12 @@
 #
 # ~/.xinitrc
 
+# use dedicated GPU instead of the integrated GPU
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+xrandr --dpi 96
+xrandr --output DP-1-1 --auto --mode 3440x1440 --right-of eDP-1-1
+
 userresources=$HOME/.Xresources
 # usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -30,7 +36,7 @@ xkbset m
 xkbset exp =m
 
 # default brightness set to 50%
-xrandr --output eDP-1 --brightness 0.5
+xrandr --output eDP-1-1 --brightness 0.5
 
 # sets monitors to turn off due to inactivity after 1 hour
 xset dpms 3600 3600 3600

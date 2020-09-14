@@ -3,7 +3,7 @@
 #
 
 # set main monitor brightness to 40%
-xrandr --output eDP-1 --brightness 0.4 
+xrandr --output eDP-1-1 --brightness 0.4 
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
