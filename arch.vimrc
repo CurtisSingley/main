@@ -1,5 +1,8 @@
 set t_Co=256
 
+" Use system clipboard
+set clipboard=unnamedplus
+
 " Set tab width to 2
 set ts=2
 set sw=2
@@ -56,6 +59,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" remap increment number to Ctrl-b
+nnoremap <C-b> <C-a>
 let mapleader = " "
 
 " seoul256 (dark):
