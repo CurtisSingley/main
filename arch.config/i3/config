@@ -57,16 +57,24 @@ bindsym $mod+d exec i3-dmenu-desktop
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
+# bindsym $mod+e focus left
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+# bindsym $mod+u focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# alternative for win key on right side:
+bindsym $mod+e focus left
+bindsym $mod+u focus right
+bindsym $mod+Shift+e move left
+bindsym $mod+Shift+u move right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -92,7 +100,8 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
+bindsym $mod+v layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
